@@ -1,0 +1,1446 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Drupal8 Theming: Twig - DrupalFeb 2014 </title>
+  <link rel="stylesheet" href="css/reveal.css">
+  <!-- <link rel="stylesheet" href="css/theme/default.css">  -->
+  <link rel="stylesheet" href="css/custom.css" id="theme">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!--Add support for earlier versions of Internet Explorer -->
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<div class="global-footer">
+  <div class="global-footer-center">
+    <figure class="logo">
+      <img src="images/geekroyale-pirateskull-150.png" alt="">
+    </figure>
+
+    <div class="social">
+      <i class="fa fa-twitter"></i> :
+      @mortendk |
+      #drupaltwig |
+      #DCFFM
+    </div>
+
+  </div>
+</div>
+<!--
+<div class="global-aside">
+  <a href="#/start"><i class="fa fa-home"></i></a>
+  <a href="#/ego"><i class="fa fa-user"></i></a>
+  <a href="#/whatwaswrongwithdrupal"><i class="fa fa-bug"></i></a>
+  <a href="#/whatsnew"><i class="fa fa-bullhorn"></i></a>
+  <a href="#/twigbasic"><i class="fa fa-cog"></i></a>
+  <a href="#/drupal8theme"><i class="fa fa-user"></i></a>
+  <a href="#/translate"><i class="fa fa-comment"></i></a>
+  <a href="#/join"><i class="fa fa-bullseye"></i></a>
+  <a href="#/resources"><i class="fa fa-user"></i></a>
+</div>
+
+ --><div class="reveal"><div class="slides">
+
+
+<!-- Teaser slide -->
+<section>
+  <h1>Take the Drupal Themer survey! </h1>
+  <p>https://drupaltheming2014.webform.com/form/11517</p>
+</section>
+
+<section id="start" data-background="images/viking.jpg"  data-transition="zoom">
+  <br><br><br><br><br><br><br>
+  <h1>T W I G !</h1>
+  <h2>Drupal 8 theming</h2>
+  <h3>Drupalcamp Frankfurth 2014</h3>
+</section>
+<!-- /teaser -->
+
+<section data-background="images/offended.png" data-transition="zoom">
+  <br><br><br><br><br>
+  <h1>Offended ?</h1>
+  <p class="bgdark">i'm so Sörry</p>
+</section>
+
+<!-- ego  -->
+<section id="ego">
+
+  <section>
+    <h1>Morten</h1>
+    <h1 class="fragment" data-fragment-index="2">Birch</h1>
+    <h1 class="fragment" data-fragment-index="3">heide-jørgensen</h1>
+  </section>
+  <section  data-transition="fade">
+    <h1 class="large">birch</h1>
+  </section>
+  <section  data-transition="fade">
+    <h1 class="large">bitch</h1>
+  </section>
+
+  <section  data-transition="fade">
+    <h1 class="large">mortendk</h1>
+  </section>
+
+  <section  data-transition="fade">
+    <h1>http://morten.dk</h1>
+  </section>
+
+  <section  data-transition="fade">
+    <h1><span class="opacity-5">http://morten.</span>dk</h1>
+  </section>
+
+  <section  data-transition="fade">
+    <h1 class="large">dk</h1>
+  </section>
+
+  <section  data-transition="fade">
+    <h1 class="large">div killer</h1>
+    <h3>&lt;div class=&quot;killer&quot;&gt;</h3>
+  </section>
+
+  <section>
+    <h3>me:</h3>
+    <h1><i class="fa fa-twitter"></i> @mortendk </h1>
+  </section>
+
+  <section>
+    <img src="images/geekroyale-skull.png" alt="">
+    <p>geek Röyale - copenhagens finest themes</p>
+  </section>
+
+<!--
+  <section id="contact">
+    <h1>Send me <i class="fa fa-heart"></i></h1>
+    <p>
+      <ul>
+        <li><a href="http://twitter.com/mortendk"><i class="fa fa-twitter"></i>: @mortendk</a></li>
+        <li><a href="http://facebook.com/mortendk"><i class="fa fa-facebook"></i>: facebook.com/mortendk</a></li>
+        <li><a href="http://plus.google.com/mortendk"><i class="fa fa-googleplus"></i>: plus.google.com/mortendk</a> </li>
+        <li><a href="mail://morten@geekroyalecom"><i class="fa fa-envelope"></i> : morten@geekroyale</a> </li>
+        <li><a href="http://linkedin.com/mortendk"><i class="fa fa-linkedin"></i> -> ping me on linkedin</a></li>
+      </ul>
+    </p>
+  </section>
+-->
+
+</section>
+<!-- /ego -->
+
+
+<!-- Whats wront with Drupal -->
+<section id="whatwaswrongwithdrupal">
+<!--
+  <section>
+    <h1>whats wrong <br >with Drupal</h1>
+    <i class="fa fa-ambulance"></i>
+  </section>
+-->
+
+<!--   <section>
+
+    <h2>
+    "As a themer I want to implement an awesome design into Drupal
+
+      <br><br>
+
+      I will accept this story when in not loosing my sanity inside a php array"
+      </h2>
+  </section>
+ -->
+  <section>
+    <h1>So What is <br><span class="fragment roll-in">Actually</span> wrong <br>with <br> Drupal <span class="fragment roll-in">Theming</span> ? </h1>
+    <p class="fragment roll-in">From the frontend perspective ?</p>
+    <small class="fragment roll-in">sorry devs you can moan later</small>
+  </section>
+
+  <section>
+    <h1>2 things:</h1>
+  </section>
+
+  <section>
+    <h1>Divitis</h1>
+    <h2>Rich Markup (tm)</h2>
+    <pre><code data-trim contenteditable>
+<div class="foo bar baz whatever">
+  <div class="foo bar baz whatever">
+    <div class="foo bar baz whatever">
+
+      <h1 class="pane-title">hello im drupal</h1>
+
+      <div class="node node-type node-viewmode-argh">
+        always add another div
+      </div>
+
+    </div>
+  </div>
+</div>
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>css overload</h1>
+  </section>
+
+  <section id="csslove">
+    <small>27 css files in drupal 7 stark</small>
+    <pre><code data-trim contenteditable class="max">
+<style media="all">
+  @import url("sites/modules/system/system.base.css?mz4mz0");
+  @import url("sites/modules/system/system.menus.css?mz4mz0");
+  @import url("sites/modules/system/system.messages.css?mz4mz0");
+  @import url("sites/modules/system/system.theme.css?mz4mz0");</style>
+<style media="all">
+  @import url("sites/modules/contextual/contextual.css?mz4mz0");
+</style>
+<style media="all">
+  @import url("sites/modules/aggregator/aggregator.css?mz4mz0");
+  @import url("sites/modules/book/book.css?mz4mz0");
+  @import url("sites/modules/comment/comment.css?mz4mz0");
+  @import url("sites/sites/all/modules/contrib/date/date_api/date.css?mz4mz0");
+  @import url("sites/modules/field/theme/field.css?mz4mz0");
+  @import url("sites/modules/node/node.css?mz4mz0");
+  @import url("sites/sites/all/modules/contrib/picture/picture_wysiwyg.css?mz4mz0");
+  @import url("sites/modules/poll/poll.css?mz4mz0");
+  @import url("sites/modules/search/search.css?mz4mz0");
+  @import url("sites/sites/all/modules/contrib/search_krumo/search_krumo.css?mz4mz0");
+  @import url("sites/modules/user/user.css?mz4mz0");
+  @import url("sites/sites/all/modules/contrib/video_filter/video_filter.css?mz4mz0");
+  @import url("sites/modules/forum/forum.css?mz4mz0");
+  @import url("sites/sites/all/modules/contrib/views/css/views.css?mz4mz0");
+  @import url("sites/sites/all/modules/contrib/admin_menu/admin_menu.css?mz4mz0");
+  @import url("sites/sites/all/modules/contrib/admin_menu/admin_menu.uid1.css?mz4mz0");
+</style>
+<style media="all">
+  @import url("sites/sites/all/modules/contrib/ctools/css/ctools.css?mz4mz0");
+  @import url("sites/sites/all/modules/contrib/panels/css/panels.css?mz4mz0");
+  @import url("sites/sites/all/modules/contrib/panels/plugins/layouts/twocol_stacked/twocol_stacked.css?mz4mz0");
+  @import url("sites/sites/all/themes/mothership/mothership/templates/panels//mothership-html5page/mothership-html5page.admin.css?mz4mz0");
+</style>
+<style media="all">
+  @import url("sites/themes/stark/layout.css?mz4mz0");
+</style>
+    </code></pre>
+
+  </section>
+
+
+  <section>
+    <h1>css overload</h1>
+    <h2>5 classes for each field</h2>
+
+    <pre><code>
+<div class="field field-something field-even_more another-field-cause-im-drupal">
+    wait im just a piece of data
+</div>
+
+    </code></pre>
+
+
+  </section>
+
+
+  <section>
+    <h2>Drupals Frontend Problems:</h2>
+    <h1> <i class="fa fa-ambulance"></i></h1>
+    <h1 class="fragment slide">1. the markup</h1>
+    <h1 class="fragment slide">2 .the css</h1>
+
+  </section>
+
+
+  <section data-background="images/cryingintherain.gif">
+    <br><br><br><br><br><br><br>
+    <h1>why</h1>
+  </section>
+
+  <section data-background="images/typing.gif">
+    <br><br><br><br><br><br><br><br>
+    <br><br>
+    <h1> Who's to Blame</h1>
+  </section>
+
+  <section data-background="images/developers.jpg">
+    <br><br><br><br><br><br><br><br>
+    <br><br>
+    <h2>Its the :</h2>
+    <h1>Developers!</h1>
+  </section>
+
+  <section data-background="images/designers.jpg">
+    <br><br><br><br><br><br><br><br>
+    <br><br>
+    <h2>No Its the :</h2>
+    <h1>Themers!</h1>
+  </section>
+
+<!--   <section>
+    <h1>Blame ?</h1>
+
+    <div class="w100 clear">
+      <div class="w50 fragment roll-in">
+        <img src="images/developers.jpg">
+        <h2>The "Developers"</h2>
+        <p></p>
+      </div>
+      <div class="w50 fragment fade">
+        <img src="images/designers.jpg">
+        <h2>The Themer</h2>
+      </div>
+    </div>
+  </section>
+
+ -->
+
+  <section data-background="images/facepalm.jpg">
+    <br><br><br><br><br><br><br><br>
+    <h1>One markup <br>to rule! em all</h1>
+  </section>
+
+
+  <section data-background="images/webchickwithagun.jpg">
+    <br><br><br><br><br><br><br>
+    <h1>Nobody told us <br> what to do!</h1>
+  </section>
+
+  <section data-background="images/prettyplease.gif">
+    <br><br><br><br><br><br>
+    <h1>Pretty please...</h1>
+  </section>
+
+    <section data-background="images/wtf.png">
+    <h1>TWIG</h1>
+    <h2>Anger driven development ;)</h2>
+  </section>
+
+  <section data-background="images/fu-amsterdam.jpg">
+    <br><br><br>
+    <h1>Frontend United!  <br>Amsterdam march 2012 </h1>
+  </section>
+
+  <section data-background="images/sanfrancisco.png">
+    <br><br><br>
+    <h1>San Francisco</h1>
+  </section>
+
+  <section data-background="images/fuckyou.gif">
+    <br><br><br><br><br><br><br><br><br>
+    <h1>PHP template </h1>
+  </section>
+
+  <section data-background="images/french.jpg">
+    <br><br><br><br><br><br><br><br><br>
+    <h1>TWIG</h1>
+    <h2> a little bit of french elegance</h2>
+  </section>
+
+  <section data-background="images/planning.gif">
+    <br><br><br><br><br>
+    <h1>Lets make a plan</h1>
+  </section>
+
+  <section>
+    <h1>Drop the what if's</h1>
+    <p> but but but but but what if...</p>
+  </section>
+
+  <section data-background="images/thedude.gif">
+    <br><br><br><br><br>
+    <h1>Dont Dumb it down</h1>
+    <p>
+      Themers are not <i>that</i> Dumb
+    </p>
+  </section>
+
+  <section>
+    <h1>the Frontend experience</h1>
+    <ul>
+      <li>Start from nothing</li>
+      <li>Dont solve all problems</li>
+      <li>Provide tools</li>
+      <li>Visibility</li>
+      <li>consistency</li>
+      <li>dont dumb it down</li>
+    </ul>
+  </section>
+
+</section>
+
+
+<!-- whats new -->
+<section id="whatsnew">
+
+  <section>
+    <h1>New awesome [sjeit]</h1>
+    <p>or 666 reasons why Drupal8 is better than Drupal7</p>
+  </section>
+
+  <section data-background="images/html5.png">
+    <h1>HTML 5</h1>
+  </section>
+
+  <section>
+    <h1>HTML5</h1>
+    <pre><code>
+      <header role="banner">
+        <nav>
+          <a href="/">home</a> | <a href="/info">info</a>
+        </nav>
+      </header>
+      <main>
+
+        </aside>
+        <div>
+          ...
+        </div>
+      </main>
+      <footer  role="">
+      </footer>
+
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>Drupal 8 DON'T support</h2>
+  </section>
+
+
+  <section data-background="images/tears.png" data-transition="linear" data-transition-speed="fast">
+    <h1 class="large">ie 6</h1>
+  </section>
+  <section data-background="images/tears.png" data-transition="linear" data-transition-speed="fast">
+    <h1 class="large">ie 7</h1>
+  </section>
+  <section data-background="images/tears.png" data-transition="linear" data-transition-speed="fast">
+    <h1 class="large">ie 7</h1>
+  </section>
+
+  <section data-background="images/woho.gif"  data-transition="linear" data-transition-speed="fast">
+  </section>
+
+  <section id="movie">
+    <h2>Pretty markup</h2>
+    <video src="movie/install-drupal8.mp4" controls></video>
+  </section>
+
+  <section>
+
+    <h2>
+      &lt;div id=&quot;bad-practice&quot;&gt;...&lt;/div&gt;
+    </h2>
+    <p>75% less ID's *</p>
+  </section>
+
+  <section>
+    <h1>Drupal CSS </h1>
+
+    <h3>Drupal 7</h3>
+    <pre><code>
+      &lt;body class=&quot;html one-sidebar sidebar-first not-front logged-in
+      page-node page-node- page-node-4 node-type-fieldtest &quot;&gt;
+    </code></pre>
+    <h3>Drupal8</h3>
+    <pre><code>
+      &lt;body class=&quot;  how-about-we_figure_that-out &quot;&gt;
+    </code></pre>
+  </section>
+
+  <section>
+    <h1>CSS Stucture</h1>
+    <h2>Build on SMACSS & BEM</h2>
+    <a href="https://drupal.org/node/1887918">CSS architecture (1887918)</a>
+    <pre><code>
+    .notification {
+        /* general styles for all notifications */
+      }
+      .notification--info {
+        /* blue color adjustments */
+      }
+    </code></pre>
+
+  </section>
+
+  <section>
+    <h1>css filenames</h1>
+    <img src="images/cssfilename.jpg">
+  </section>
+
+  <section>
+    <h1>Approved</h1>
+    <img src="images/cssfilename-approved.jpg">
+  </section>
+
+  <section>
+    <h1>B.A.T. Namescheme</h1>
+    <a href="https://drupal.org/node/1887922">CSS file organization (nid: 1887922)</a>
+  </section>
+
+  <section id="filestructure">
+    <h2>D8 File Structure</h2>
+    <img src="images/filestructure.png">
+    <br>
+    <small> Drupal 8 core</small>
+  </section>
+
+  <section>
+    <h1>/themes</h1>
+    <p>provide visibility</p>
+    <p>themes now lives in "/themes"</p>
+    <p>or "sites/ *** /themes" </p>
+  </section>
+
+  <section>
+    <h2>D8 File structure modules</h2>
+    <img src="images/filestructure-modules.png">
+      <p>modulename/templates/*.html.twig</p>
+  </section>
+
+  <section>
+    <h1 class="large"> <i class="fa fa-bolt"></i> DEBUG!</h1>
+  </section>
+
+  <section>
+    <h2>where's that template ?</h2>
+    <img src="images/debug-pre.jpg">
+  </section>
+
+  <section>
+    <h1>    <i class="fa fa-bolt"></i> DEBUG!</h1>
+    <pre><code>
+      $settings['twig_debug'] = TRUE;
+    </code></pre>
+    <small> settings.php</small>
+  </section>
+
+  <section>
+    <h2>$settings['twig_debug'] = TRUE;</h2>
+    <img src="images/debug-post.jpg">
+  </section>
+
+
+
+  <section id="debug">
+    <img src="images/debug-post.jpg" class="max">
+  </section>
+
+
+  <section>
+    <img src="images/mothership-poorthemershelper.jpg">
+    <h2>Drupal7 Mothership (tm)</h2>
+    <a href="http://drupal.org/projects/mothership">Mothership</a>
+  </section>
+
+  <section data-background="images/graveyard.jpg">
+    <h1 class="large">R I P</h1>
+    <h1>Theme functions</h1>
+
+  </section>
+
+  <section>
+    <h1>Compiled</h1>
+    <p>
+      the twig templates are compiled
+    </p>
+  </section>
+
+  <section>
+    <h1>.scss -> .css</h1>
+    <p>(not to themers: its the same thingie that the compile thingie do)</p>
+  </section>
+
+  <section>
+    <h1>SQL in a theme ?</h1>
+  </section>
+
+  <section>
+    <h1>Who does that ?</h1>
+    <h2 class="fragment">Bad Developers</h2>
+    <h2 class="fragment">Themes are markup & css!</h2>
+  </section>
+
+  <section>
+    <h2>SELECT * FROM users</h2>
+    <pre> <code>
+      <article class="foo foo-whateverdrupal">
+        <article class="foo foo-inner foo-whateverdrupal">
+          ....
+        </article>
+      </article>
+    </code> </pre>
+  </section>
+
+
+  <section>
+    <h2>Branding & logo</h2>
+    <p>HARD coded</p>
+    <img src="images/block-page-markup.png">
+  </section>
+
+  <section>
+    <h2>Branding & logo</h2>
+    <p>is now a block</p>
+    <img src="images/block-sitebranding.png">
+  </section>
+
+
+
+</section>
+
+<!-- D7 vs D8 -->
+<section id="twigbasic">
+  <section>
+    <h1>Twig Basic</h1>
+
+    <p>its dead easy</p>
+  </section>
+  <!-- php -->
+  <section>
+    <h2> comments & vars </h2>
+    <pre><code>
+    /*
+    comment
+    */
+      &lt;?php print $foo ; ?&gt;
+    </code></pre>
+      <small>phptemplate</small>
+
+
+    <pre><code>
+      {# comment #}
+
+      {{ foo }}
+    </code></pre>
+    <small>twig</small>
+
+  </section>
+
+  <section>
+    <h2> Variables  </h2>
+    <pre><code contenteditable>
+   /*
+    so php template
+    Now where is that value again
+   */
+
+ &lt;?php print $foo['bar']['UND']->baz['what']->thefuck['seriously'] ?&gt;
+
+    </code></pre>
+    <small>phptemplate</small>
+
+    <pre><code contenteditable>
+      {# hello twig can you find valdo ? #}
+
+      {{ foo.bar.baz.done.with.this.shit }}
+
+      {{ foo['bar'] }}
+
+      {% functions %}
+    </code></pre>
+      <small>Twig</small>
+
+  </section>
+
+  <section>
+    <h1>If / else</h1>
+
+    <pre><code>
+    &lt;?php if($foo): ?&gt;
+      &lt;?php print $var; ?&gt;
+    &lt;?php endif; ?&gt;
+    </code></pre>
+    <small>phptemplate</small>
+
+    <pre><code>
+      {% if foo %}
+        {{ var }}
+      {% endif %}
+    </code></pre>
+    <small> twig</small>
+
+  </section>
+
+  <!-- for -->
+  <section>
+    <h2>loops</h2>
+    <pre><code contenteditable>
+      <h2>Team Awesome </h2>
+      <ul>
+        {% for user in users %}
+            <li>{{ user.username}}</li>
+        {% endfor %}
+      </ul>
+    </code></pre>
+      <small>twig</small>
+    <pre><code contenteditable>
+      <h2>Team Awesome </h2>
+      <ul>
+        <li>cottset</li>
+        <li>joel</li>
+        <li>jen</li>
+        <li>mark carver</li>
+        <li>mortendk</li>
+      </ul>
+    </code></pre>
+      <small>drupal8</small>
+
+  </section>
+
+  <section>
+    <h2>loop stuff</h2>
+    <pre><code contenteditable>
+
+    {{ loop.length }}
+
+    {{ loop.first }}
+
+    {{ loop.last }}
+
+    {{ loop.index }}
+
+    {% if loop.first %}
+      ...
+    {% elseif loop.index == 2 %}
+      ...
+    {% elseif loop.last %}
+        ...
+    {% endif %}
+    </code></pre>
+  </section>
+
+  <!-- include -->
+  <section>
+    <h1>Set</h1>
+    <pre><code contenteditable>
+      {% set foo %}
+        count-{{ loop.index }}
+      {% endset %}
+
+      {{ foo }},
+    </code></pre>
+    <small>twig</small>
+
+    <pre><code contenteditable>
+      count-1,count-2, count-3,
+    </code></pre>
+    <small> output </small>
+  </section>
+
+  <!-- filter -->
+  <section>
+    <h1>filter </h1>
+    <pre><code contenteditable>
+     <p>
+    {% filter upper %}
+        uppercase for the win
+    {% endfilter %}
+    </p>
+    </code></pre>
+
+    <pre><code contenteditable>
+      <p>
+        UPPERCASE FOR THE WIN
+      </p>
+    </code></pre>
+  </section>
+
+
+  <section>
+    <h2>|filter </h2>
+    <pre><code>
+      {{ foo|dostufftofoo }}
+
+      {#  name = <a hred="foo">morten</a> #}
+      {{ name|striptags|title }}
+    </code></pre>
+    <small>twig</small>
+
+    <pre><code>
+      Morten
+    </code></pre>
+
+
+  </section>
+
+</section>
+
+<!-- Drupal 8 theme -->
+<section id="drupal8theme">
+
+  <section>
+    <h1>Drupal8 Theme </h1>
+  </section>
+
+  <section>
+    <h1>Yggdrasil</h1>
+    <i class="fa fa-github"></i> github.com/mortendk/yggdrasil
+  </section>
+
+
+  <section>
+    <h1>theme structure</h1>
+      <img src="images/pagebuild.png">
+  </section>
+
+
+
+  <section>
+    <pre><code class="max" data-trim>
+      name: drupal7themename
+      description = This is my epic D7 theme
+      screenshot = screenshot.png
+      engine = phptemplate
+      core = 7.x
+      php = 5.2
+
+      regions[header] = Header
+      regions[logo] = Logo
+      regions[menu] = Menu
+      regions[messages] = Messages
+      regions[content] = Content
+      regions[footer] = Footer
+
+      stylesheets[all][] = css/style.css
+      #FOAD fix
+      stylesheets[all][] = donteverloadmeagain.css
+    </code></pre>
+     <h2>drupal7.info</h2>
+  </section>
+
+  <section>
+    <pre><code data-trim>
+      name: drupal8themename
+      type: theme
+      description: This is my epic D8 theme
+      package: Core
+      core: 8.x
+
+      stylesheets:
+        all:
+          - css/layout.css
+        print:
+          - css/print.css
+        stylesheets-remove:
+          - system.theme.css
+          - user.icons.css
+          - stuffidontwant.css
+
+      regions:
+        header: Header
+        logo: Logo
+        menu: Menu
+        messages: Messages
+        content: Content
+        footer: Footer
+
+      # engine: phptemplate
+    </code></pre>
+    <h2>drupal8.info</h2>
+  </section>
+
+  <section>
+    <h1> if you <i class="fa fa-heart"></i> <br >phptemplate</h1>
+    <pre><code>
+
+
+      # engine: phptemplate
+
+
+    </code></pre>
+    <small>themename.info</small>
+  </code></pre>
+  </section>
+
+  <section>
+    <h1>FOAD</h1>
+    <p> its now build in</p>
+    <pre><code>
+      stylesheets[all][] = css/style.css
+      #FOAD fix
+      ;stylesheets[all][] = donteverloadmeagain.css
+      stylesheets[all][] = system.theme.css
+      stylesheets[all][] = user.icons.css
+      stylesheets[all][] = stuffidontwant.css
+    </code></pre>
+    <small>drupal 7</small>
+
+    <pre><code>
+        stylesheets-remove:
+          - system.theme.css
+          - user.icons.css
+          - stuffidontwant.css
+    </code></pre>
+    <small>drupal 8</small>
+
+  </section>
+  <!-- regions -->
+  <section>
+    <h1>Regions on Page</h1>
+
+    <h3>Drupal 7</h3>
+    <pre><code data-trim contenteditable>
+&lt;?php if ($page['footer']): ?&gt;
+  <footer role="contentinfo">
+    &lt;?php print render($page[footer]);  ?&gt;
+  </footer>
+&lt;?php endid ?&gt;
+    </code></pre>
+    <small>&lt;?php print render($page[region]);  ?&gt;</small>
+
+    <h3>Drupal 8</h3>
+    <pre><code data-trim contenteditable>
+  {% if page.footer %}
+  <footer role="contentinfo">
+    {{ page.footer}}
+  </footer>
+{% endif %}
+    </code></pre>
+    <small>twig: {{ page.region }} </small>
+  </section>
+  <!-- regions -->
+
+  <section>
+    <h3>Blocks</h3>
+    <pre><code contenteditable>
+    &lt;div{{ attributes }}&gt;
+      {{ title_prefix }}
+      {% if label %}
+        &lt;h2{{ title_attributes }}&gt;{{ label }}&lt;/h2&gt;
+      {% endif %}
+      {{ title_suffix }}
+
+      &lt;div{{ content_attributes }}&gt;
+        {{ content }}
+      &lt;/div&gt;
+    &lt;/div&gt;
+        </code></pre>
+        <small>block.twig</small>
+
+        <pre><code data-trim contenteditable>
+    &lt;nav class=&quot;{{ attributes.class }}&quot; role=&quot;{{ attributes.role}}&quot;&gt;
+      {{ title_prefix }}
+      {% if label %}
+        &lt;h2{{ title_attributes }}&gt;{{ label }}&lt;/h2&gt;
+      {% endif %}
+      {{ title_suffix }}
+      {{ content }}
+    &lt;/nav&gt;
+    </code></pre>
+    <small>block--system-menu-block.html.twig</small>
+  </section>
+
+  <section>
+    <h1>block.html.twig</h1>
+    <p>theme hook suggestions</p>
+    <img src="images/blockhooksuggestion.jpg">
+  </section>
+
+
+  <section>
+    <h2>{{ whatever|replace }}</h2>
+    <pre><code data-trim contenteditable>
+      <div class="block blockmore blockmorecauseofdrupal">...</div>
+      {{ attributes.class |replace( {'block': '' }) }}
+      <div class=”block-whatever”>
+    </code></pre>
+    <small>block.html.</small>
+
+    <pre><code data-trim contenteditable>
+      &lt;nav class=&quot;{{ attributes.class }}&quot; role=&quot;{{ attributes.role}}&quot;&gt;
+        {{ title_prefix }}
+        {% if label %}
+          &lt;h2{{ title_attributes }}&gt;{{ label }}&lt;/h2&gt;
+        {% endif %}
+        {{ title_suffix }}
+
+        {{ content }}
+      &lt;/nav&gt;
+    </code></pre>
+    <small>block--system-menu-block.html.twig</small>
+
+    <pre><code data-trim contenteditable>
+      <nav class="l-foobar mainmenu" role="navigation">
+        ... content ...
+      </nav>
+
+    </code></pre>
+    <small>  Done </small>
+  </section>
+
+
+
+
+  <section id="attributes">
+    <h1>{{attributes}}</h1>
+
+    <pre><code contenteditable>
+    <article {{attributes}}> ... </article>
+    </code></pre>
+
+    <pre><code contenteditable>
+    <article class="{{attributes.class}}" {{attributes}}>
+      ...
+    </article>
+    </code> </pre>
+
+    <pre><code contenteditable>
+      <article
+      class="{{ attributes.class }}"
+      role="{{ attributes.role }}"
+      {{ attributes }}
+      >
+      ....
+      </article>
+    </code> </pre>
+
+  </section>
+
+
+  <section>
+    <h2>add .foo</h2>
+    <pre><code contenteditable>
+
+      <article class="foo {{ attributes.class}}" {{attributes}}>
+        foo
+      </article>
+
+    </code></pre>
+    <small>.twig</small>
+
+    <pre><code contenteditable>
+      <article class="foo field-foo" role="something">
+        foo
+      </article>
+    </code></pre>
+    <small>drupal</small>
+
+  </section>
+
+
+  <section id="terms">
+    <h1>Terms</h1>
+    <img src="images/terms.png">
+    <p>the designer is an idiot</p>
+    <small>and they wanna support ie "something"</small>
+  </section>
+
+  <section>
+    <h2>the Markup</h2>
+    <pre><code contenteditable>
+
+      &lt;div class="tags"&gt;
+        <span>3 tags:</span>
+
+        <a href="#" class="odd">foo</a>,
+        <a href="#" class="even thedesignerisanidiot">bar</a>,
+        <a href="#" class="odd">baz</a>.
+
+      &lt;/div&gt;
+    </code></pre>
+      <small>the markup</small>
+
+      <pre><code contenteditable>
+      .thedesignerisanidiot{
+        color: green;
+        font-style:italic;
+      }
+      </code></pre>
+  </section>
+
+  <section>
+    <h2>node</h2>
+    <pre><code contenteditable>
+        <article class="...">
+        ....
+        {{ content.field_tags}}
+
+        {{ content|without('field_tags') }}
+        </article>
+      </code></pre>
+      <small>node.html.twig</small>
+  </section>
+
+  <section id="test">
+    <h2>{{ <span class="pink">content</span>|without(<span class="orange">field-name</span>) }}</h2>
+    <br><br>
+    <h2>{{ fieldname }}</h2>
+  </section>
+
+
+  <section>
+    <pre><code contenteditable>
+    {# Start the loop #}
+    {% for delta, item in items %}
+
+      {# create a class var #}
+      {% set class %}
+        {# odd even #}
+        {{- cycle(["even", "odd"], delta) }}
+        {# count-x #}
+        count-{{ loop.index -}}"
+      {% endset %}
+
+      <a href="#" class="{{class}}">{{item}}</a>,
+
+    {# end the loop #}
+    {% endfor %}
+    </code></pre>
+    <small>field--field-tags.html.twig</small>
+
+    <pre><code contenteditable>
+       <a href="#" class="odd count-1">Odin</a>,
+       <a href="#" class="even count-2">Thor</a>,
+       <a href="#" class="odd count-3">Freya</a>,
+    </code></pre>
+    <small>drupal8</small>
+  </section>
+
+  <section>
+    <h2>tags vs tag</h2>
+    <pre><code contenteditable>
+      {# first loop #}
+      {% if loop.first %}
+        {# set tags / tag #}
+        <span>
+        {% if loop.length > 1 %}
+          {{ loop.length }}
+          tags:
+          {% else %}
+          tag:
+        {% endif %}
+        <span>
+      ...
+    </code></pre>
+    <small>field--field-tags.html.twig</small>
+
+    <pre><code contenteditable>
+      <span>3 tags:</span>
+    </code></pre>
+
+  </section>
+
+  <section>
+    <h2>add a class on 2 tag</h2>
+    <pre><code contenteditable>
+      {% if loop.first %}
+        ...
+      {% elseif loop.index == 2 %}
+      <a href="#" class="thedesignerisanidiot {{class}}">{{item}}</a>,
+
+      ...
+
+    {# end the loop #}
+    {% endfor %}
+    </code></pre>
+    <small>field--field-tags.html.twig</small>
+
+    <pre><code contenteditable>
+       <a href="#" class="odd count-1">Odin</a>
+       <a href="#" class="thedesignerisanidiot even count-2">Thor</a>
+       <a href="#" class="odd count-3">Freya</a>
+    </code></pre>
+  </section>
+
+  <section>
+
+    <pre><code contenteditable>
+      {% if loop.first %}
+        <span>
+        {% if loop.length > 1 %}
+          {{ loop.length }}  tags:
+        {% else %}
+        tag:
+        {% endif %}
+        <span>
+
+        <a href="#" class="{{class}}">{{item}}</a>,
+      {% elseif loop.index == 2 %}
+        <a href="#" class="thedesignerisanidiot {{class}}">{{item}}</a>,
+      {% elseif loop.last %}
+        <a href="#" class="{{class}}">{{item}}</a>.
+      {% else %}
+        <a href="#" class="{{class}}">{{item}}</a>,
+      {% endif %}
+    </code></pre>
+    <small>field--field-tags.html.twig</small>
+
+    <pre><code contenteditable>
+        3 tags:
+       <a href="#" class="odd count-1">Odin</a>,
+       <a href="#" class="thedesignerisanidiot even count-2">Thor</a>,
+       <a href="#" class="odd count-3">Freya</a>.
+    </code></pre>
+
+  </section>
+
+
+  <section id="twigblock">
+    <h1>TWIG BLOCK</h1>
+
+    <pre><code contenteditable>
+      {% block foobar %}
+        {# i can be something else #}
+      {% endblock %}
+    </code></pre>
+  </section>
+
+  <section>
+    <img src="images/twigblock.png">
+  </section>
+
+  <section>
+    <img src="images/twigblock-debug.png">
+  </section>
+
+
+  <section>
+    <pre><code contenteditable>
+      {% block headerblock %}
+        change me if im on the frontpage
+      {% endblock %}
+    </code></pre>
+    <small>page.twig.html</small>
+
+    <pre><code contenteditable>
+      {% extends "themes/yggdrasil/templates/page.html.twig" %}
+      {% block headerblock %}
+        Im on the frontpage!
+      {% endblock %}
+    </code></pre>
+    <small>page--front.html.twig</small>
+  </section>
+
+  <section>
+    <img src="images/twigblock-page.png">
+  </section>
+
+  <section>
+    <img src="images/twigblock-frontpage.png">
+  </section>
+
+
+</section>
+
+<!-- translate -->
+<section id="translate">
+  <section>
+    <h1>translate</h1>
+  </section>
+
+  <section>
+
+
+    <pre><code contenteditable>
+    {{ 'last checked: @time ago'| t({'@time':time}) }}
+    </code></pre>
+
+
+  </section>
+
+
+  <section>
+
+    <pre><code contenteditable>
+      {% trans %}
+        Hi im a swede and i speak funny: Höidy hoeeeydi
+      {% endtrans %}
+    </code></pre>
+
+
+  </section>
+
+
+  <section data-background="images/swedish.png">
+    <br><br><br><br><br><br><br><br>
+    <h1>Höidy hoeeeydi </h1>
+  </section>
+
+
+</section>
+
+<!-- translate -->
+
+<section>
+  <h1>Responsive ?</h1>
+  <p></p>
+</section>
+
+<!-- join -->
+<section id="join" data-background="images/fight.gif">
+  <section>
+    <h1>HEROs wanted</h1>
+    <h2>{{ TWIG }}</h2>
+  </section>
+
+  <section>
+    <h1>twig team</h1>
+    <p>
+      cottser <br>
+      joel  <br>
+      jen lampton<br>
+      mortendk<br>
+      ruben<br>
+      mark carver<br>
+      fabianx <br>
+      marc Drummond <br>
+    </p>
+    <h2>YOU :)</h2>
+  </section>
+
+  <section data-background="images/party.gif">
+    <h1>#Drupaltwig</h1>
+    <h2>drupaltwig.org</h2>
+  </section>
+
+  <section>
+    <h1>Hangout</h1>
+    <h2>Wed. at 9pm</h2>
+    <h2>Thurs. at 1am</h2>
+  </section>
+
+  <section>
+    <h1>IRC</h1>
+    <h2>IRC: #drupal-twig</h2>
+  </section>
+
+  <section>
+    <h1>Slack app</h1>
+    <h2>https://drupaltwig.slack.com</h2>
+  </section>
+
+  <section>
+    <h1>Codesprint Tomorrow ?</h1>
+    <p>12:00</p>
+    <p>Field</p>
+  </section>
+
+
+</section>
+<!-- / join -->
+
+
+<section>
+  <h1>Questions? </h1>
+</section>
+
+<section data-background="images/dance.gif">
+  <br><br><br><br><br><br><br><br>
+  <h2><i class="fa fa-twitter"></i> @mortendk</h2>
+
+  <h2><i class="fa fa-twitter"></i> #drupaltwig</h2>
+
+  <h2>drupaltwig.org</h2>
+
+</section>
+
+
+<section id="resources">
+  <h1>resourses</h1>
+  <p>
+    <a href="http://twig.sensiolabs.org/doc/templates.html">TWIG documentation</a>
+    <br>
+    <a href="http://drupaltwig.org">drupaltwig.org</a>
+    <br>
+    <i class="fa fa-github"></i>http://mortendk.github.io/drupal8-twig-chicago-2014
+  </p>
+</section>
+
+
+<!--
+
+<section data-transition="linear" data-background="#4d7e65" data-background-transition="slide">
+  <h2>Background Transitions</h2>
+  <p>
+    Pass reveal.js the <code>backgroundTransition: 'slide'</code> config argument to make backgrounds slide rather than fade.
+  </p>
+</section>
+
+<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
+  <h2>Background Transition Override</h2>
+  <p>
+    You can override background transitions per slide by using <code>data-background-transition="slide"</code>.
+  </p>
+</section>
+ -->
+
+
+</div></div><!-- end reveal wrappers -->
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+<script>
+  Reveal.initialize({
+    width: 900, //900
+    height: 700, //700
+    // Display controls in the bottom right corner
+    controls: false,
+    // Display a presentation progress bar
+    progress: true,
+    // Display the page number of the current slide
+    slideNumber: false,
+    // Push each slide change to the browser history
+    history: false,
+    // Enable keyboard shortcuts for navigation
+    keyboard: true,
+    // Enable the slide overview mode
+    overview: true,
+    // Vertical centering of slides
+    center: true,
+    // Enables touch navigation on devices with touch input
+    touch: false,
+    // Loop the presentation
+    loop: false,
+    // Change the presentation direction to be RTL
+    rtl: false,
+    // Turns fragments on and off globally
+    fragments: true,
+    // Flags if the presentation is running in an embedded mode,
+    // i.e. contained within a limited portion of the screen
+    embedded: false,
+    // Number of milliseconds between automatically proceeding to the
+    // next slide, disabled when set to 0, this value can be overwritten
+    // by using a data-autoslide attribute on your slides
+    autoSlide: 0,
+    // Stop auto-sliding after user input
+    autoSlideStoppable: true,
+    // Enable slide navigation via mouse wheel
+    mouseWheel: false,
+    // Hides the address bar on mobile devices
+    hideAddressBar: true,
+    // Opens links in an iframe preview overlay
+    previewLinks: false,
+    // Transition style
+    transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+    // Transition speed
+    transitionSpeed: 'slow', // default/fast/slow
+
+    // Transition style for full page slide backgrounds
+    backgroundTransition: 'concave', // default/none/slide/concave/convex/zoom
+
+    // Number of slides away from the current that are visible
+    viewDistance: 3,
+
+    // Parallax background image
+    parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+    // Parallax background size
+    parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+</body>
+</html>
